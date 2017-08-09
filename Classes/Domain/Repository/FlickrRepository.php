@@ -28,7 +28,7 @@ class FlickrRepository extends Repository
         } else {
             $count = count($xml->photoset[0]->children());
             if ($count>0) {
-                $output = "";
+                $output = array();
                 for($i = 0 ; $i < $count; $i++) {
                     $photoset = $xml->photoset[0]['id'];
                     $farm = $xml->photoset[0]->photo[$i]['farm'];
@@ -39,7 +39,12 @@ class FlickrRepository extends Repository
                     $url = 'http://c1.staticflickr.com/'.$farm.'/'.$server.'/'.$id.'_'.$secret;
                     $thumb = $url.'_m.jpg';
                     $big = $url.'_c.jpg';
-                    $output .= '<li><a href="'.$big.'" data-lightbox="roadtrip'.$photoset.'"><img src="'.$thumb.'" alt="'.$title.'" /></a></li>';
+                    $output[$i] = array(
+                        'big' => $big,
+                        'photoset' => $photoset,
+                        'thumb' => $thumb,
+                        'title' => $title
+                    );
                 }
             }
         }
@@ -74,11 +79,14 @@ class FlickrRepository extends Repository
 
                     $photos = $xml->photosets->photoset[$i]['photos'];
 
+                    $albumId = intval($xml->photosets->photoset[$i]['id']);
+
                     $output[$i] = array(
                         'title' => $title,
                         'photos' => $photos,
                         'image' => $img,
-                        'date' => $datecreated
+                        'date' => '@'.$datecreated,
+                        'id' => $albumId
                     );
                 }
             }

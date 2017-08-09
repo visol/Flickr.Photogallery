@@ -28,6 +28,17 @@ class FlickrController extends ActionController
     }
 
     /**
+     * @param string $albumId
+     * @return void
+     */
+    public function photosInlineAction($albumId)
+    {
+        $photos = $this->flickrRepository->showPhotos($albumId);
+        $this->view->assign('photos', $photos);
+        return $this->view->render("../Flickr/Photos");
+    }
+
+    /**
      * @return void
      */
     public function albumListAction()

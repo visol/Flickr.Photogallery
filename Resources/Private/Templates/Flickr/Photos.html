@@ -1,6 +1,9 @@
 {namespace fusion=Neos\Fusion\ViewHelpers}
 {namespace neos=Neos\Neos\ViewHelpers}
-{namespace media=Neos\Media\ViewHelpers}
 <ol class="flickr-photogallery-photos">
-    <f:format.raw>{photos}</f:format.raw>
+    <f:if condition="{photos}">
+        <f:for each="{photos}" as="photo">
+            <li><a href="{photo.big}" data-lightbox="roadtrip{photo.photoset}"><img src="{photo.thumb}" alt="{photo.title}" /></a></li>
+        </f:for>
+    </f:if>
 </ol>
