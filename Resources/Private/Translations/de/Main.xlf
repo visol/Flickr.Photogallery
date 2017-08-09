@@ -6,10 +6,10 @@
 				<source>Einstellungen</source>
 			</trans-unit>
             <trans-unit id="nouserid" xml:space="preserve">
-				<source>Keine Flickr User ID definiert.</source>
+				<source>Keine oder fehlerhafte Flickr User ID definiert.</source>
 			</trans-unit>
             <trans-unit id="noalbumid" xml:space="preserve">
-				<source>Keine Flickr Album ID definiert.</source>
+				<source>Keine oder fehlerhafte Flickr Album ID definiert.</source>
 			</trans-unit>
 		</body>
 	</file>
