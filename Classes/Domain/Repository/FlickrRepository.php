@@ -31,6 +31,7 @@ class FlickrRepository extends Repository
                 $output = array();
                 for($i = 0 ; $i < $count; $i++) {
                     $photoset = $xml->photoset[0]['id'];
+                    $albumtitle = $xml->photoset[0]['title'];
                     $farm = $xml->photoset[0]->photo[$i]['farm'];
                     $server = $xml->photoset[0]->photo[$i]['server'];
                     $id = $xml->photoset[0]->photo[$i]['id'];
@@ -43,7 +44,8 @@ class FlickrRepository extends Repository
                         'big' => $big,
                         'photoset' => $photoset,
                         'thumb' => $thumb,
-                        'title' => $title
+                        'title' => $title,
+                        'albumtitle' => $albumtitle
                     );
                 }
             }

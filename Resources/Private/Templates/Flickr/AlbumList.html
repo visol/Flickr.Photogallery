@@ -3,12 +3,20 @@
 <ol class="flickr-photogallery-albumlist">
     <f:if condition="{albumlist}">
         <f:for each="{albumlist}" as="album">
-            {album.id}<br />
-            {album.title}<br />
-            {album.photos} {f:translate(id: 'content.photos', package: 'Flickr.Photogallery', source: 'NodeTypes/AlbumList')}<br />
-            {f:translate(id: 'content.created', package: 'Flickr.Photogallery', source: 'NodeTypes/AlbumList')}: <f:format.date format="d.m.Y">{album.date}</f:format.date><br />
-            <img src="{album.image}" alt="{album.title}" /><br />
-            <f:link.action action="photosInline" arguments="{albumId: album.id}">Zum Album</f:link.action>
+            <li>
+                <f:link.action action="photosInline" arguments="{albumId: album.id}">
+                    <div class="albumlist-description">
+                        <div class="albumlist-description-wrapper">
+                            <h4><f:format.crop maxCharacters="60">{album.title}</f:format.crop></h4>
+                            <small>
+                                {album.photos} {f:translate(id: 'content.photos', package: 'Flickr.Photogallery', source: 'NodeTypes/AlbumList')}<br />
+                                {f:translate(id: 'content.created', package: 'Flickr.Photogallery', source: 'NodeTypes/AlbumList')}: <f:format.date format="d.m.Y">{album.date}</f:format.date>
+                            </small>
+                        </div>
+                    </div>
+                    <img src="{album.image}" alt="{album.title}" />
+                </f:link.action>
+            </li>
         </f:for>
     </f:if>
 </ol>

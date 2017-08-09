@@ -1,0 +1,4 @@
+.flickr-photogallery-albumlist, .flickr-photogallery-photos, .flickr-photogallery-albumlist li, .flickr-photogallery-photos li { display:block; margin:0; padding:0; float:left; }
+.albumlist-description { float:left; width:100%; background:red; color:#FFF; position: relative; line-height:normal; }
+.albumlist-description-wrapper { position: absolute; top:0; left:0; padding:1em; width:100%; height:159px; background:rgba(0,0,0,0.5); }
+.albumlist-description-wrapper:hover { -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; filter: alpha(opacity=0); -moz-opacity:0; -khtml-opacity: 0; opacity: 0; }

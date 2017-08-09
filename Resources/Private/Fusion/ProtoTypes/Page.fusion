@@ -1,0 +1,30 @@
+prototype(Neos.Neos:Page) {
+
+    head {
+
+        flickrphotogalleryCss = Neos.Fusion:Tag {
+            @position = 'before stylesheets'
+            tagName = 'link'
+            attributes {
+                media = 'all'
+                rel = 'stylesheet'
+                href = Neos.Fusion:ResourceUri {
+                    path = 'resource://Flickr.Photogallery/Public/Styles/flickr-photogallery.css'
+                }
+            }
+        }
+
+    }
+
+    #neoscommerceFooterJs = Neos.Fusion:Tag {
+    #    @position = 'end'
+    #    tagName = 'script'
+    #    attributes {
+    #        type = 'text/javascript'
+    #        src = Neos.Fusion:ResourceUri {
+    #            path = 'resource://NeosCommerce.Cart/Public/JavaScript/neoscommerce-cart.js'
+    #        }
+    #    }
+    #}
+
+}

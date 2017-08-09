@@ -2,6 +2,7 @@
 {namespace neos=Neos\Neos\ViewHelpers}
 <ol class="flickr-photogallery-photos">
     <f:if condition="{photos}">
+        <h1>{photos.0.albumtitle}</h1>
         <f:for each="{photos}" as="photo">
             <li><a href="{photo.big}" data-lightbox="roadtrip{photo.photoset}"><img src="{photo.thumb}" alt="{photo.title}" /></a></li>
         </f:for>
