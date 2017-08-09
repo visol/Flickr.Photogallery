@@ -1,0 +1,23 @@
+Flickr:
+  Photogallery:
+    templateRootPath: 'resource://Flickr.Photogallery/Private/Templates/'
+Neos:
+  Neos:
+    userInterface:
+      translation:
+        autoInclude:
+          Flickr.Photogallery:
+            - Main
+            - 'NodeTypes/*'
+      defaultLanguage: 'de'
+    nodeTypes:
+      groups:
+        flickr:
+          position: 'end'
+          label: 'Flickr'
+    fusion:
+      autoInclude:
+        Flickr.Photogallery: true
+  Flow:
+    i18n:
+      defaultLocale: de

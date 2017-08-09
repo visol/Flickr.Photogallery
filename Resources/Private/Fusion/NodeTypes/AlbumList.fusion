@@ -1,0 +1,7 @@
+prototype(Flickr:AlbumList) < prototype(Neos.Neos:Plugin)
+prototype(Flickr:AlbumList) {
+    package = 'Flickr.Photogallery'
+    controller = 'Flickr'
+    action = 'albumList'
+    userId = ${q(node).property('userId')}
+}

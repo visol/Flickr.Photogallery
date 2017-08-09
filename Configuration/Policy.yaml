@@ -1,0 +1,11 @@
+privilegeTargets:
+  'Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
+    'Flickr.Photogallery:FlickrControllerActions':
+      matcher: 'method(Flickr\Photogallery\Controller\FlickrController->.*Action())'
+
+roles:
+  'Neos.Flow:Everybody':
+    privileges:
+      -
+        privilegeTarget: 'Flickr.Photogallery:FlickrControllerActions'
+        permission: GRANT
