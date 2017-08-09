@@ -1,10 +1,15 @@
 {namespace fusion=Neos\Fusion\ViewHelpers}
 {namespace neos=Neos\Neos\ViewHelpers}
 <ol class="flickr-photogallery-photos">
-    <f:if condition="{photos}">
-        <h1>{photos.0.albumtitle}</h1>
-        <f:for each="{photos}" as="photo">
-            <li><a href="{photo.big}" data-lightbox="roadtrip{photo.photoset}"><img src="{photo.thumb}" alt="{photo.title}" /></a></li>
-        </f:for>
+    <f:if condition="{photos}==1">
+        <f:then>
+            <li>{f:translate(id: 'noalbumid', package: 'Flickr.Photogallery', source: 'Main')}</li>
+        </f:then>
+        <f:else>
+            <h2>{photos.0.albumtitle}</h2>
+            <f:for each="{photos}" as="photo">
+                <li><a href="{photo.big}" data-lightbox="roadtrip{photo.photoset}"><img src="{photo.thumb}" alt="{photo.title}" /></a></li>
+            </f:for>
+        </f:else>
     </f:if>
 </ol>

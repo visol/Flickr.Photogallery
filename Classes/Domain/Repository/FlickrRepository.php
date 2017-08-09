@@ -15,16 +15,31 @@ class FlickrRepository extends Repository
 {
 
     /**
+     * @var array
+     */
+    protected $settings;
+
+    /**
+     * @param array $settings
+     * @return void
+     */
+    public function injectSettings(array $settings)
+    {
+        $this->settings = $settings;
+    }
+
+    /**
      * @param string $albumId
      * @return void
      */
     public function showPhotos($albumId)
     {
-        $xmlfile = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=26ad69d7401e4c33afbdcc81d7667e6b&photoset_id='.$albumId.'&format=rest';
+        $apiKey = $this->settings['apiKey'];
+        $xmlfile = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key='.$apiKey.'&photoset_id='.$albumId.'&format=rest';
         $xml = simplexml_load_file($xmlfile);
         $check = $xml->err[0]['code'];
         if ($check=='1') {
-            $output = $xml->err[0]['msg'];
+            $output = $xml->err[0]['code'];
         } else {
             $count = count($xml->photoset[0]->children());
             if ($count>0) {
@@ -38,7 +53,7 @@ class FlickrRepository extends Repository
                     $secret = $xml->photoset[0]->photo[$i]['secret'];
                     $title = $xml->photoset[0]->photo[$i]['title'];
                     $url = 'http://c1.staticflickr.com/'.$farm.'/'.$server.'/'.$id.'_'.$secret;
-                    $thumb = $url.'_m.jpg';
+                    $thumb = $url.'_q.jpg';
                     $big = $url.'_c.jpg';
                     $output[$i] = array(
                         'big' => $big,
@@ -59,12 +74,13 @@ class FlickrRepository extends Repository
      */
     public function showAlbumList($userId)
     {
+        $apiKey = $this->settings['apiKey'];
         $userId = str_replace("@", "%40", $userId);
-        $xmlfile = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getList&api_key=26ad69d7401e4c33afbdcc81d7667e6b&user_id='.$userId.'&format=rest';
+        $xmlfile = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getList&api_key='.$apiKey.'&user_id='.$userId.'&format=rest';
         $xml = simplexml_load_file($xmlfile);
         $check = $xml->err[0]['code'];
         if ($check=='1') {
-            $output = $xml->err[0]['msg'];
+            $output = $xml->err[0]['code'];
         } else {
             $count = count($xml->photosets->children());
             if ($count>0) {

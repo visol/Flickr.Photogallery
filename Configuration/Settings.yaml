@@ -1,6 +1,7 @@
 Flickr:
   Photogallery:
     templateRootPath: 'resource://Flickr.Photogallery/Private/Templates/'
+    apiKey: '26ad69d7401e4c33afbdcc81d7667e6b'
 Neos:
   Neos:
     userInterface:

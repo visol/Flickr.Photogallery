@@ -5,6 +5,12 @@
 			<trans-unit id="settings" xml:space="preserve">
 				<source>Einstellungen</source>
 			</trans-unit>
+            <trans-unit id="nouserid" xml:space="preserve">
+				<source>Keine Flickr User ID definiert.</source>
+			</trans-unit>
+            <trans-unit id="noalbumid" xml:space="preserve">
+				<source>Keine Flickr Album ID definiert.</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

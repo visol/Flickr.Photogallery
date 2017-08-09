@@ -1,23 +1,27 @@
 {namespace fusion=Neos\Fusion\ViewHelpers}
 {namespace neos=Neos\Neos\ViewHelpers}
 <ol class="flickr-photogallery-albumlist">
-    <f:if condition="{albumlist}">
-        <f:for each="{albumlist}" as="album">
-            <li>
-                <f:link.action action="photosInline" arguments="{albumId: album.id}">
-                    <div class="albumlist-description">
-                        <div class="albumlist-description-wrapper">
-                            <h4><f:format.crop maxCharacters="60">{album.title}</f:format.crop></h4>
-                            <small>
-                                {album.photos} {f:translate(id: 'content.photos', package: 'Flickr.Photogallery', source: 'NodeTypes/AlbumList')}<br />
-                                {f:translate(id: 'content.created', package: 'Flickr.Photogallery', source: 'NodeTypes/AlbumList')}: <f:format.date format="d.m.Y">{album.date}</f:format.date>
-                            </small>
+    <f:if condition="{albumlist}==1">
+        <f:then>
+            <li>{f:translate(id: 'nouserid', package: 'Flickr.Photogallery', source: 'Main')}</li>
+        </f:then>
+        <f:else>
+            <f:for each="{albumlist}" as="album">
+                <li>
+                    <f:link.action action="photosInline" arguments="{albumId: album.id}">
+                        <div class="albumlist-description">
+                            <div class="albumlist-description-wrapper">
+                                <h4><f:format.crop maxCharacters="60">{album.title}</f:format.crop></h4>
+                                <small>
+                                    {album.photos} {f:translate(id: 'content.photos', package: 'Flickr.Photogallery', source: 'NodeTypes/AlbumList')}<br />
+                                    {f:translate(id: 'content.created', package: 'Flickr.Photogallery', source: 'NodeTypes/AlbumList')}: <f:format.date format="d.m.Y">{album.date}</f:format.date>
+                                </small>
+                            </div>
                         </div>
-                    </div>
-                    <img src="{album.image}" alt="{album.title}" />
-                </f:link.action>
-            </li>
-        </f:for>
+                        <img src="{album.image}" alt="{album.title}" />
+                    </f:link.action>
+                </li>
+            </f:for>
+        </f:else>
     </f:if>
 </ol>
-
