@@ -16,15 +16,4 @@ prototype(Neos.Neos:Page) {
 
     }
 
-    #neoscommerceFooterJs = Neos.Fusion:Tag {
-    #    @position = 'end'
-    #    tagName = 'script'
-    #    attributes {
-    #        type = 'text/javascript'
-    #        src = Neos.Fusion:ResourceUri {
-    #            path = 'resource://NeosCommerce.Cart/Public/JavaScript/neoscommerce-cart.js'
-    #        }
-    #    }
-    #}
-
 }
