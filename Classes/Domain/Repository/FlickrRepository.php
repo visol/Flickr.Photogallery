@@ -30,7 +30,7 @@ class FlickrRepository extends Repository
 
     /**
      * @param string $albumId
-     * @return void
+     * @return array
      */
     public function showPhotos($albumId)
     {
@@ -70,7 +70,7 @@ class FlickrRepository extends Repository
 
     /**
      * @param string $userId
-     * @return void
+     * @return array
      */
     public function showAlbumList($userId)
     {
