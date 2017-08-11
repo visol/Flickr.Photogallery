@@ -1,0 +1,17 @@
+-
+  name: 'Photos Route'
+  uriPattern: '{node}/photos/{--flickr_photogallery-albumlist.albumId}'
+  defaults:
+    '@package': 'Neos.Neos'
+    '@controller': 'Frontend\Node'
+    '@format': 'html'
+    '@action': 'show'
+    '--flickr_photogallery-albumlist':
+      '@package': 'Flickr.Photogallery'
+      '@controller': 'Flickr'
+      '@action': 'photosInline'
+      '@format': 'html'
+  routeParts:
+    node:
+      handler: Neos\Neos\Routing\FrontendNodeRoutePartHandler
+  appendExceedingArguments: 'true'
