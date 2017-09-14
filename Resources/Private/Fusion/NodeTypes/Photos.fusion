@@ -4,4 +4,5 @@ prototype(Flickr:Photos) {
     controller = 'Flickr'
     action = 'photos'
     albumId = ${q(node).property('albumId')}
+    lightboxvariant = ${Configuration.setting('Flickr.Photogallery.lightbox')}
 }

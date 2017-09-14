@@ -2,6 +2,7 @@ Flickr:
   Photogallery:
     templateRootPath: 'resource://Flickr.Photogallery/Private/Templates/'
     apiKey: '7fd8a37ae675f681e1013a59f2fc8d5f'
+    lightbox: 'MagnificPopup'
 Neos:
   Neos:
     userInterface:

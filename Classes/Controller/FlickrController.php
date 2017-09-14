@@ -34,7 +34,9 @@ class FlickrController extends ActionController
     {
         $albumId = $this->request->getArgument('albumId');
         $photos = $this->flickrRepository->showPhotos($albumId);
+        $lightbox = $this->settings['lightbox'];
         $this->view->assign('photos', $photos);
+        $this->view->assign('lightboxvariant', $lightbox);
         return $this->view->render("../Flickr/Photos");
     }
 

@@ -1,6 +1,6 @@
 {namespace fusion=Neos\Fusion\ViewHelpers}
 {namespace neos=Neos\Neos\ViewHelpers}
-<ol class="flickr-photogallery-photos">
+<ol class="flickr-photogallery-photos<f:if condition="{lightboxvariant}==MagnificPopup"><f:then> popup</f:then></f:if>">
     <f:if condition="{photos}==1">
         <f:then>
             <li>{f:translate(id: 'noalbumid', package: 'Flickr.Photogallery', source: 'Main')}</li>
@@ -8,7 +8,7 @@
         <f:else>
             <h2>{photos.0.albumtitle}</h2>
             <f:for each="{photos}" as="photo">
-                <li><a href="{photo.big}" data-lightbox="roadtrip{photo.photoset}"><img src="{photo.thumb}" alt="{photo.title}" /></a></li>
+                <li><a href="{photo.big}" <f:if condition="{lightboxvariant}!=MagnificPopup"><f:then> data-lightbox="roadtrip{photo.photoset}"</f:then></f:if>><img src="{photo.thumb}" alt="{photo.title}" /></a></li>
             </f:for>
         </f:else>
     </f:if>
